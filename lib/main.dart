@@ -3,5 +3,5 @@ import 'package:flutter/material.dart';
 import 'package:lab_4aug/Lab-week4/input_demo.dart'; //'./Lab-week4/basic.dart';
 
 void main() {
-  runApp(MaterialApp(home: InputDemo()));
+  runApp(MaterialApp(home: InputDemo(), debugShowCheckedModeBanner: false));
 }
