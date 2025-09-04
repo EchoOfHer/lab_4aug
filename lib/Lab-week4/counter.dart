@@ -9,26 +9,37 @@ class Counter extends StatefulWidget {
 
 class _CounterState extends State<Counter> {
   //state variable
-  String message = 'Hello';
+  int count = 0;
+  //methods
+  void updatecount() {
+    setState(() {
+      count++;
+    });
+  }
+
+  //ui
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Counter App')),
-      body: Text(message),
+      appBar: AppBar(
+        title: Text('Counter App', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.indigo,
+      ),
+      body: Center(
+        child: Text(
+          'Count = $count',
+          style: TextStyle(fontSize: 26, color: Colors.indigo),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           //annonymous function for short code
           // print('button pressed'); // like console.log
           //debugPrint(message);
-          setState(() {
-            if (message == 'Hello') {
-              message = 'Hi';
-            } else {
-              message = 'Hello';
-            }
-          });
+          updatecount();
         },
-        child: Text('Count'),
+        backgroundColor: Colors.indigo,
+        child: Text('Count', style: TextStyle(color: Colors.white)),
       ),
     );
   }
