@@ -23,7 +23,7 @@ class _InputDemoState extends State<InputDemo> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: TextField(
               controller: tcName,
               decoration: InputDecoration(
