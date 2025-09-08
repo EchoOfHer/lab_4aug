@@ -59,7 +59,15 @@ class _LoginState extends State<Login> {
               obscureText: true,
             ),
           ),
-          ElevatedButton(onPressed: credentialCheck, child: Text('Login')),
+          ElevatedButton(
+            onPressed: credentialCheck,
+            style: ElevatedButton.styleFrom(
+              backgroundColor:
+                  Colors.blue, // This changes the button's background color
+            ),
+            child: Text('Login', style: TextStyle(color: Colors.white)),
+          ),
+
           SizedBox(height: 16),
           Text('$Login_status', style: TextStyle(color: Colors.red)),
         ],
