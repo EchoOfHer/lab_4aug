@@ -56,6 +56,7 @@ class _LoginState extends State<Login> {
             child: TextField(
               controller: tcUser_password,
               decoration: InputDecoration(hintText: 'Password'),
+              obscureText: true,
             ),
           ),
           ElevatedButton(onPressed: credentialCheck, child: Text('Login')),
