@@ -63,7 +63,7 @@ class _CalculatorState extends State<Calculator> {
           SizedBox(height: 16),
           //--------------- Clear
           ElevatedButton(
-            onPressed: () => pattern(3),
+            onPressed: () => clear(),
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
             child: Text('Clear', style: TextStyle(color: Colors.white)),
           ),
@@ -79,27 +79,34 @@ class _CalculatorState extends State<Calculator> {
     setState(() {
       int? first_num = int.tryParse(tcFirst_num.text);
       int? second_num = int.tryParse(tcSecond_num.text);
-      if (first_num != null && second_num != null) {
-        switch (selection) {
-          //-------------------------------  summation
-          case 1:
-            result = first_num + second_num;
-            break;
-          //-------------------------------  power
-          case 2:
-            result = pow(first_num, second_num).toInt();
-            break;
-          //-------------------------------  clear
-          default:
-        }
-        output = 'Result = $result';
+      if (tcFirst_num.text.isEmpty || tcSecond_num.text.isEmpty) {
+        output = 'Please input both numbers';
       } else {
-        // Handle the case where one or both inputs are invalid (null).
-        output = 'Please input only numbers';
+        if (first_num != null && second_num != null) {
+          switch (selection) {
+            //-------------------------------  summation
+            case 1:
+              result = first_num + second_num;
+              break;
+            //-------------------------------  power
+            default:
+              result = pow(first_num, second_num).toInt();
+          }
+          output = 'Result = $result';
+        } else {
+          // Handle the case where one or both inputs are invalid (null).
+          output = 'Please input only numbers';
+        }
       }
     });
   }
 
-  //------------------ summation
-  void summation() {}
+  //------------------ clearing
+  void clear() {
+    setState(() {
+      tcFirst_num.clear();
+      tcSecond_num.clear();
+      output = '';
+    });
+  }
 }
