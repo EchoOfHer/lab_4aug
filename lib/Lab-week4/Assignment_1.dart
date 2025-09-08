@@ -61,10 +61,7 @@ class _LoginState extends State<Login> {
           ),
           ElevatedButton(
             onPressed: credentialCheck,
-            style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  Colors.blue, // This changes the button's background color
-            ),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
             child: Text('Login', style: TextStyle(color: Colors.white)),
           ),
 
