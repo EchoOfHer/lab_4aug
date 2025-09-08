@@ -8,7 +8,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final Map<String, dynamic> user_credential = {
+  //----------------------------- variable
+  final Map<String, String> user_credential = {
     'user_name': 'admin',
     'user_password': '1234',
   };
@@ -17,6 +18,20 @@ class _LoginState extends State<Login> {
   TextEditingController tcUser_name = TextEditingController();
   TextEditingController tcUser_password = TextEditingController();
   String Login_status = '';
+  //----------------------------- method
+  void credentialCheck() {
+    setState(() {
+      user_name = tcUser_name.text;
+      user_password = tcUser_password.text;
+      if (user_name != user_credential['user_name'] ||
+          user_password != user_credential['user_password']) {
+        Login_status = 'Wrong username or password';
+      } else {
+        Login_status = 'Welcome $user_name';
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,14 +58,9 @@ class _LoginState extends State<Login> {
               decoration: InputDecoration(hintText: 'Password'),
             ),
           ),
-          ElevatedButton(onPressed: null, child: Text('Login')),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Text(
-              'Lo $Login_status',
-              style: TextStyle(color: Colors.red),
-            ),
-          ),
+          ElevatedButton(onPressed: credentialCheck, child: Text('Login')),
+          SizedBox(height: 16),
+          Text('$Login_status', style: TextStyle(color: Colors.red)),
         ],
       ),
     );
