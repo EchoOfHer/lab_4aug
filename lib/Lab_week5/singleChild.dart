@@ -7,17 +7,10 @@ class Singlechild extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(title: Text('My app'))
+      // for no overlab on status bar
       body: SafeArea(
-        child: Container(
-          margin: EdgeInsets.all(20), //external space
-          padding: EdgeInsets.all(20), //internal space
-          color: Colors.amber,
-          width: 150,
-          height: 150,
-          alignment: Alignment.center,
-          child: Text('Single child'),
-        ),
-      ), // for no overlab on status bar
+        child: Align(alignment: Alignment(0, 0), child: Text('Sigle Child')),
+      ),
     );
   }
 }
