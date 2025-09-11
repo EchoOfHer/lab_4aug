@@ -9,6 +9,7 @@ class Singlechild extends StatelessWidget {
       // appBar: AppBar(title: Text('My app'))
       // for no overlab on status bar
       body: SafeArea(
+        // Align is (x,y), -1 --> 1 (0,0) is center
         child: Align(alignment: Alignment(0, 0), child: Text('Sigle Child')),
       ),
     );
